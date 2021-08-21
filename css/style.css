@@ -1,0 +1,7 @@
+.btn-hover:hover{
+    font-weight: normal;
+    color: white !important;
+    cursor: pointer;
+    background-color: black !important;
+    
+  }
