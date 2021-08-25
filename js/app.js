@@ -29,70 +29,60 @@ function calculateDiscountTotal(){
     const  discountedPrice = getTotalPrice() - (getTotalPrice() * 20 / 100);
     totalPrice.innerText = Math.round(discountedPrice);
     document.getElementById('promo-code-input').style.display='none';
-    document.getElementById('promo-code-btn').innerText='Promo Applied';
+    document.getElementById('promo-code-btn').innerText= 'Applied';
+    document.getElementById('promo-code-btn').disabled= true;
     }
     document.getElementById('promo-code-input').value= " ";   
 }
 
 // product extra prices 
-function addPrice0(extraAmount0){
-    const extraCost = parseInt(document.getElementById(extraAmount0).innerText='0');
+function addPrice(extraAmountId,cost){
+    const extraCost = parseInt(document.getElementById(extraAmountId).innerText=cost);
     extraCost.innerText = extraCost;
 }
-function addPrice180(extraAmount180){
-    const extraCost = parseInt(document.getElementById(extraAmount180).innerText='180');
-    extraCost.innerText = extraCost;
-}
-function addPrice100(extraAmount100){
-    const extraCost = parseInt(document.getElementById(extraAmount100).innerText='100');
-    extraCost.innerText = extraCost;
-}
-function addDeliveryCost20(deliveryCost20){
-    const deliveryCost = parseInt(document.getElementById(deliveryCost20).innerText='20');
-    deliveryCost.innerText = deliveryCost;
-}
+
 // memory button add event listener 
 document.getElementById('memory-16gb').addEventListener('click',
 function(){
-    addPrice180('memory-cost');
+    addPrice('memory-cost',180);
     CalculateTotalPrice();
 });
 document.getElementById('memory-8gb').addEventListener('click',
 function(){
-    addPrice0('memory-cost');
+    addPrice('memory-cost',0);
     CalculateTotalPrice();
 });
 
 // storage button add event listener 
 document.getElementById('storage-256gb').addEventListener('click',
 function(){
-    addPrice0('storage-cost');
+    addPrice('storage-cost',0);
     CalculateTotalPrice();    
 });
 
 document.getElementById('storage-512gb').addEventListener('click',
 function(){
-    addPrice100('storage-cost');
+    addPrice('storage-cost',100);
     CalculateTotalPrice();
    
 });
 
 document.getElementById('storage-1tb').addEventListener('click',
 function(){
-    addPrice180('storage-cost');
+    addPrice('storage-cost',180);
     CalculateTotalPrice();
 });
 
 //// delivery cost button add event listener 
 document.getElementById('delivry-free').addEventListener('click',
 function(){
-    addPrice0('delivery-cost');
+    addPrice('delivery-cost',0);
     CalculateTotalPrice();
 });
 
 document.getElementById('delivry-charge-20').addEventListener('click',
 function(){
-    addDeliveryCost20('delivery-cost');
+    addPrice('delivery-cost',20);
     CalculateTotalPrice();      
 });
 
